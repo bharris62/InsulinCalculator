@@ -1,14 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- * Created by BHarris on 3/3/17.
- private double insulinRatio;
- private double carb;
- private double protein;
- private double fat;
- private double correctionFactor;
- */
 public class MealTest {
     Meal m = new Meal(10, 34.9, 20, 30.4, 42.4);
 

@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        Meal m = new Meal(10, 34.9, 20, 30.4, 42.4);
+        Meal m = new Meal(10, 10, 34.9, 30.4, 42.4);
         Calculator c = new Calculator(m);
         System.out.println("cu: " + c.halfPieceCarbUnit());
         System.out.println("fpu: " + c.halfPieceFatProteinUnit());
