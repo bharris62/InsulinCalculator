@@ -1,6 +1,3 @@
-/**
- * Created by BHarris on 3/3/17.
- */
 public class Calculator {
     Meal meal;
     public Calculator(Meal meal) {

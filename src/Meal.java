@@ -21,7 +21,7 @@ public class Meal {
         return insulinRatio;
     }
 
-    public void setInsulinRatio(int insulinRatio) {
+    public void setInsulinRatio(double insulinRatio) {
         this.insulinRatio = insulinRatio;
     }
 
@@ -29,7 +29,7 @@ public class Meal {
         return carb;
     }
 
-    public void setCarb(int carb) {
+    public void setCarb(double carb) {
         this.carb = carb;
     }
 
@@ -37,7 +37,7 @@ public class Meal {
         return protein;
     }
 
-    public void setProtein(int protein) {
+    public void setProtein(double protein) {
         this.protein = protein;
     }
 
@@ -45,7 +45,7 @@ public class Meal {
         return fat;
     }
 
-    public void setFat(int fat) {
+    public void setFat(double fat) {
         this.fat = fat;
     }
 
