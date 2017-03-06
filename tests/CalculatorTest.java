@@ -9,11 +9,6 @@ public class CalculatorTest {
     Calculator c = new Calculator(m);
 
     @Test
-    public void testCorrectionFactorPercent(){
-        assertTrue(c.correctionFactorPercent() == 0.02865329512893983);
-    }
-
-    @Test
     public void testCarbUnit(){
         assertTrue(c.carbUnit() == 2);
     }

@@ -1,5 +1,5 @@
 public class Calculator {
-    Meal meal;
+    private Meal meal;
     public Calculator(Meal meal) {
         this.meal = meal;
     }

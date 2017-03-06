@@ -19,9 +19,9 @@ public class Main {
         Spark.init();
 
         Spark.get("/get-meals", (request, response) -> {
-            ArrayList<Meal> messages = m.selectMeals(conn);
+            ArrayList<Meal> meals = m.selectMeals(conn);
             JsonSerializer s = new JsonSerializer();
-            return s.serialize(messages);
+            return s.serialize(meals);
         });
 
         Spark.post("/post-meal", (request, response) -> {
@@ -29,9 +29,19 @@ public class Main {
             JsonParser p = new JsonParser();
             Meal meal = p.parse(body, Meal.class);
             m.insertIntoMeals(conn, meal.getInsulinRatio(), meal.getCarb(), meal.getProtein(), meal.getFat(), meal.getCorrectionFactor());
-            System.out.println("POSTED!");
             return "";
         });
+
+        Spark.get("/get-result/:id", (request, response) -> {
+            int id = Integer.parseInt(request.params(":id"));
+            Meal meal = m.selectMeal(conn, id);
+            Bolus b = new Bolus(meal);
+            JsonSerializer s = new JsonSerializer();
+            return s.serialize(b);
+        });
+
+
+
     }
 
 }
