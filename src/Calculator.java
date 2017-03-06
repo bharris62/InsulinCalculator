@@ -5,13 +5,12 @@ public class Calculator {
     }
 
     public double correctionFactorPercent(){
-        return (1/meal.getCorrectionFactor()) * 2;
+        return (meal.getCorrectionFactor()/100);
     }
 
     public double carbUnit() {
         return meal.getCarb() / 10.0; // magic number!
     }
-
 
     public double fatProteinUnit(){
         return ((4 * meal.getProtein()) + (9 * meal.getFat())) / 100;
@@ -55,7 +54,18 @@ public class Calculator {
         return cuPerc;
     }
 
+    public double calculateBolusNormal(){
+        double bolusNormal;
+        if (cuPerc() < .2) {
+            bolusNormal = 0;
+        } else if(cuPerc() > .2 && cuPerc() <= .8){
+            bolusNormal = carbUnit() * (10/meal.getInsulinRatio()) * (1-correctionFactorPercent());
+        } else  {
+            bolusNormal = carbUnit() * (10/meal.getInsulinRatio());
+        }
 
+        return bolusNormal;
+    }
 
     public double calculateBolusSquare(){
         double bolusSquared = 0;
@@ -65,7 +75,7 @@ public class Calculator {
         if (cuPerc() < .2) {
             bolusSquared += (halfPieceFatProteinUnit() * 10/meal.getInsulinRatio());
         } else if (cuPerc() >= .2 && cuPerc() <= .8) {
-            bolusSquared += (halfPieceFatProteinUnit() * 10/meal.getInsulinRatio() * (1 + correctionFactorPercent()));
+            bolusSquared += ((halfPieceFatProteinUnit() * 10/meal.getInsulinRatio()) * (1 + correctionFactorPercent()));
         } else if (cuPerc() > .8) {
             bolusSquared = 0;
         }

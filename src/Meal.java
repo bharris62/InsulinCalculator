@@ -2,13 +2,15 @@
  * Created by BHarris on 3/3/17.
  */
 public class Meal {
+    private int id;
     private double insulinRatio;
     private double carb;
     private double protein;
     private double fat;
     private double correctionFactor;
 
-    public Meal(double insulinRatio, double correctionFactor, double carb, double protein, double fat) {
+    public Meal(int id, double insulinRatio, double correctionFactor, double carb, double protein, double fat) {
+        this.id = id;
         this.insulinRatio = insulinRatio;
         this.correctionFactor = correctionFactor;
         this.carb = carb;
@@ -16,6 +18,14 @@ public class Meal {
         this.fat = fat;
     }
     public Meal(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public double getInsulinRatio() {
         return insulinRatio;

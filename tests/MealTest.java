@@ -2,11 +2,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MealTest {
-    Meal m = new Meal(10, 34.9, 20, 30.4, 42.4);
+    Meal m = new Meal(1,10, 34.9, 20, 30.4, 42.4);
 
     @Test
     public void testConstructor(){
-        Meal m = new Meal(10, 34.9, 20, 30.4, 42.4);
+        Meal m = new Meal(1, 10, 34.9, 20, 30.4, 42.4);
         assertTrue(m != null);
 
     }
